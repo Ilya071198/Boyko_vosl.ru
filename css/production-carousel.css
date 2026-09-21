@@ -1,0 +1,148 @@
+/* The carousel is transferred from Portfolio-main/index.html without changing its geometry or motion. */
+
+@media (min-width: 1001px) {
+  .production.section { padding-block: 0; }
+
+  .production .production-layout {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    min-height: 500px;
+    height: 500px;
+    width: calc(100% - max(56px, calc((100% - var(--container)) / 2)));
+    margin-left: max(56px, calc((100% - var(--container)) / 2));
+    margin-right: 0;
+  }
+
+  .production .production-copy {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 40px;
+  }
+
+  .production .production-lead { margin-top: 14px; }
+  .production .production-facts { gap: 12px; margin-block: 18px; }
+
+  .production .production-media {
+    flex: 1;
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1199px) {
+  .production .production-layout {
+    width: calc(100% - 40px);
+    margin-left: 40px;
+  }
+}
+
+.production .production-copy > .eyebrow { display: none; }
+
+.production .mh3-slider-wrapper {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  padding-left: 10%;
+  cursor: grab;
+}
+
+.production .mh3-slider-wrapper:active { cursor: grabbing; }
+
+.production .mh3-image-slider {
+  --br: 12px;
+  --gap: 5px;
+  width: 110%;
+  height: 100%;
+  transform: rotate(12deg) translateY(-40%);
+  transform-origin: left center;
+  position: relative;
+  overflow: visible;
+}
+
+.production .mh3-slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+  border-radius: var(--br);
+}
+
+.production .mh3-slider-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 300%;
+  gap: var(--gap);
+  will-change: transform;
+}
+
+.production .mh3-slide {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--br);
+  overflow: hidden;
+  aspect-ratio: 5 / 2;
+  transform: translateZ(0);
+  user-select: none;
+  position: relative;
+}
+
+.production .mh3-image-container { width: 100%; height: 100%; position: relative; }
+
+.production .mh3-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--br);
+  transition: opacity .3s;
+}
+
+.production .mh3-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(38, 62, 46, .2), rgba(38, 62, 46, .76));
+  pointer-events: none;
+  z-index: 1;
+  border-radius: var(--br);
+}
+
+.production .mh3-progress-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.production .mh3-progress-track {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, .3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.production .mh3-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  border-radius: 2px;
+  transition: width .3s;
+}
+
+@media (max-width: 1000px) {
+  .production.section { padding-block: 0; }
+  .production .production-layout { display: flex; flex-direction: column; gap: 0; }
+  .production .production-copy { padding-block: var(--space-section); }
+  .production .production-media { display: none !important; }
+}
